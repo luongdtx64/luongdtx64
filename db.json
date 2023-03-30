@@ -1,0 +1,18 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Tên sản phẩm",
+      "cost": 100000,
+      "descripstion": "Mô tả",
+      "amonut": 100
+    },
+    {
+      "name": "Sản Phẩm 2",
+      "cost": "100000",
+      "descripstion": "mô tả sp2",
+      "amount": "1000",
+      "id": 2
+    }
+  ]
+}
