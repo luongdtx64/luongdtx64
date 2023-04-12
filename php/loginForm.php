@@ -178,5 +178,4 @@ input[name="btn-signup"]{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="./main.js"></script>
 <script src="./login.js"></script>
-<script src="./signup.js"></script>
 </html>

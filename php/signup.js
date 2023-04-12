@@ -28,7 +28,7 @@ $(document).ready(function() {
                     </div>
                     `
                 }
-                else if(response=='error'){
+                else if(response =='error'){
                     console.log(response)
                     boxNotify.style.display = 'flex'
                     boxNotify.innerHTML = `
