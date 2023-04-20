@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 text-center">
-                        <a href="./index.html" class="title-logo">
+                        <a href="/index.html" class="title-logo">
                             <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/store/20221011_6NQfoNa67Oj0RNf5okgXoTh6.png" alt="" class="img-logo">
                         </a>
                     </div>

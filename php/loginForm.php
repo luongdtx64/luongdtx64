@@ -160,7 +160,7 @@ input[name="btn-signup"]{
                                 <input  placeholder="Tài khoản" class="inp-login" type="text" name="userlogin" >
                                 <input  placeholder="Mật khẩu" class="inp-login" type="password" name="passlogin" >
                                 <input name="btn-login" type="submit" value = "Đăng Nhập">
-                                <p class='forgot-pass'>Quên mật khẩu</p>
+                                <a href="./forgotpassForm.php" class='forgot-pass'>Quên mật khẩu</a>
                             </form>
                         </div>
                     </div>

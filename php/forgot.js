@@ -1,27 +1,28 @@
+
 var boxNotify = document.querySelector('.box-notify')
 $(document).ready(function() {
-    $("#loginForm").submit(function(event) {
+    $("#forgotPass").submit(function(event) {
         event.preventDefault();
-        var username = $("input[name='userlogin']").val();
-        var password = $("input[name='passlogin']").val();
-        console.log(username,password)
+        var username = $("input[name='user-forgot']").val();
+        var email  =$("input[name='email-forgot']").val()
+        console.log(email,username)
         $.ajax({
             type: "POST",
-            url: "./login.php",
+            url: "./forgot.php",
             data: {
-                username: username,
-                password: password
+                username:username,
+                email:email
             },
             success: function(response) {
-                if(response == 'ok'){
-                    localStorage.setItem('user',username)
+                if(response == 'succsess'){
+                    alert('Vui lòng chờ 1 chút!')
                     console.log(response)
                     boxNotify.style.display = 'flex'
                     boxNotify.innerHTML = `
                     <div class="notify-content d-flex align-items-center justify-content-center flex-column">
-                        <h4>Đăng nhập thành công</h4>
-                        <i class="fa-solid fa-check"></i>
-                        <span onclick = "document.location.href = '/webbanhang/asset/html/home.html'">OK</span>
+                        <h4>Kiểm tra email của bạn</h4>
+                        <i class="fa-regular fa-envelope"></i>
+                        <span onclick = "hideNotify()">OK</span>
                     </div>
                     `
                 }
@@ -30,7 +31,7 @@ $(document).ready(function() {
                     boxNotify.style.display = 'flex'
                     boxNotify.innerHTML = `
                     <div class="notify-content d-flex align-items-center justify-content-center flex-column">
-                        <h4>Sai tài khoản hoặc mật khẩu</h4>
+                        <h4>Tài khoản không tồn tại hoặc email không tồn tại</h4>
                         <i class="error-color fa-sharp fa-solid fa-xmark"></i>
                         <span onclick = "hideNotify()">OK</span>
                     </div>

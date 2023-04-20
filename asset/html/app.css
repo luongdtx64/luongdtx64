@@ -1,0 +1,131 @@
+.avt{
+    width: 30px !important;
+    height: 30px;
+    border-radius: 100%;
+}
+.name-user{
+    line-height: 48px;
+    margin-top: 15px;
+}
+.modal-product{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+}
+.modal-container-product{
+    background: #fff;
+    z-index: 10000;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.14);
+    position: relative;
+    width: 60%;
+    height: 80%;
+    margin: auto;
+}
+.box-img-product{
+    width: 100%;
+    height: 100%;
+}
+.box-img-big{
+    width: 50%;
+    height: 100%;
+}
+.box-product-des{
+    width: 40%;
+    margin-left: 20px;
+}
+.big-img{
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+}
+.img-small{
+    width: 5rem;
+    height: 5rem;
+    box-sizing: border-box;
+    margin-bottom: 0.75rem;
+    margin-right: 0.75rem;
+    cursor: pointer;
+}
+.border-product{
+    border: 2px solid rgb(250, 135, 4);
+}
+.btn-infor{
+    padding: 0 25px ;
+    border: 1px solid #a9a9a9;
+    background-color: transparent;
+}
+.btn-infor:hover{
+    border-color: rgb(250, 135, 4);
+}
+.img-small:hover{
+    opacity: 0.8;
+}
+.box-infor-item{
+    margin-top: 5px;
+}
+input[name="amount"]{
+    border: 1px solid #a9a9a9;
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    outline: none;
+}
+
+.box-amount button{
+    border: 1px solid #a9a9a9;
+    height: 32px;
+    width: 32px;
+    background-color: transparent;
+}
+.btn-add-product{
+    padding: 0;
+    line-height: 45px;
+    height: 45px;
+    min-width: 150px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background-color: transparent;
+    display: block;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.btn-add-product:hover{
+    color: gray;
+}
+.box-logo-img{
+    line-height: 48px !important;
+}
+.product-cart-list{
+    list-style: none;
+    display: none;
+}
+.product-cart-item{
+    border-bottom: 1px solid #a9a9a9;
+    border-top: 1px solid #a9a9a9;
+}
+
+.img-cart{
+    width: 10%;
+    height: 10%;
+}
+.remove-product{
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+}
