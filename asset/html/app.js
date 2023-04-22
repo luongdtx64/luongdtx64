@@ -104,10 +104,10 @@ function showPreviousImage() {
     boxBtnwoman.classList.remove('current-btn-change')
     window.location.href = '#product-man'
   })
-  btnChangeClothesWoman.addEventListener('click',function(){
-    boxClothesMan.style.display = 'none'
-    boxClotheswoman.style.display = 'block'
-    boxBtnMan.classList.remove('current-btn-change')
-    boxBtnwoman.classList.add('current-btn-change')
-    window.location.href = '#product-woman'
-  })
+  // btnChangeClothesWoman.addEventListener('click',function(){
+  //   boxClothesMan.style.display = 'none'
+  //   boxClotheswoman.style.display = 'block'
+  //   boxBtnMan.classList.remove('current-btn-change')
+  //   boxBtnwoman.classList.add('current-btn-change')
+  //   window.location.href = '#product-woman'
+  // })

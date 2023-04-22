@@ -91,6 +91,7 @@
                         <input placeholder="Nhập tên tài khoản" required type="text" name="user-forgot">
                         <input placeholder="Nhập email đăng kí" required type="email" name="email-forgot">
                         <input class="btn-form" name="btn-forgot" type="submit" value="Lấy lại mật khẩu">
+                        <a style="color:gray;" href="./loginForm.php">Quay lại đăng nhập</a>
                     </form>
                 </div>
             </div>

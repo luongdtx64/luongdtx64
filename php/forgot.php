@@ -20,13 +20,13 @@ if (mysqli_num_rows($result) > 0) {
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'luongdtx64@gmail.com';                 // SMTP username
-        $mail->Password = 'bazlooseiaxtnkwp';                           // SMTP password
+        $mail->Username = 'luongdtx45@gmail.com';                 // SMTP username
+        $mail->Password = 'mmhgzlyuivduhlec';                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('luongdtx64@gmail.com', 'ETO');
+        $mail->setFrom('luongdtx45@gmail.com', 'ETO');
         $mail->addAddress($email,$user);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Reset password!';
         $mail->Body    = "Mật khẩu mới của bạn là : ".$newPass."<br>
-        Mọi chi tiết liên hệ luongdtx64@gmail.com";
+        Mọi chi tiết liên hệ luongdtx45@gmail.com";
         // $mail->AltBody = 'Mọi chi tiết liên hệ luongdtx64@gmail.com';
     
         $mail->send();

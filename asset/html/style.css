@@ -355,6 +355,9 @@
 .box-product-shop+.box-product-shop{
     margin-top: 15px;
 }
+.box-product-shop-woman+.box-product-shop-woman{
+    margin-top: 15px;
+}
 .product-item+.product-item{
     margin-left: 10px   ;
     margin-top: 10px;
