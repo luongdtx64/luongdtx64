@@ -4,8 +4,17 @@ function renderUser(){
     username.innerText = name
 }
 function renderAvt(){
-    const username = localStorage.getItem('user')
-    const avt = document.querySelector('.avt')
+    let avt = document.querySelector('.avt')
+    fetch('./getAvt.php')
+    .then(response=>{
+        return response.json()
+    })
+    .then((data)=>{
+        let avtSrc = data.map(function(avt){
+            return avt.avt
+        })
+        avt.src=avtSrc.join()
+    })
 }
 const renderDataProductMale = ()=>{
     var xhr = new XMLHttpRequest();
@@ -62,7 +71,7 @@ const renderProductFemale= ()=>{
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 const proDucts = JSON.parse(xhr.responseText);
-                console.log(proDucts)
+                // console.log(proDucts)
                 var html = proDucts.map(function(proDuct,index){
                     return `<li id="${proDuct.idsanpham}" class="product-item w-25 d-flex flex-column">
                     <img src="${proDuct.hinhanh}" alt="" class="img-product-item">
@@ -75,7 +84,7 @@ const renderProductFemale= ()=>{
                 })
                 
                 var productLists = document.querySelectorAll('.box-product-shop-woman')
-                console.log(productLists)
+                // console.log(productLists)
                     productLists.forEach((productList)=>{
                         productList.innerHTML = html.join();
                     })
@@ -159,10 +168,82 @@ const addModal = (productItem)=>{
                 
             })
             const btnAddProduct = document.querySelector('.btn-add-product')
-            renderCart(btnAddProduct,modalContainer)
+            addToCart(btnAddProduct,modalContainer)
             
         })
     })
+}
+const renderCart = ()=>{
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const products = JSON.parse(xhr.responseText);
+            let htmlCart = products.map(product=>{
+                return `
+                    <li class="product-item-${product.idsanpham} product-cart-item d-flex align-items-center justify-content-around" >
+                        <img src="${product.hinhanh}" alt="sản phẩm" class="img-cart">
+                        <div style="margin-top: 20px;" class="d-flex flex-column">
+                            <span>Tên</span>
+                            <p class="name-product-cart">${product.tensp}</p>
+                        </div>
+                        <div style="margin-top: 20px;" class="d-flex align-self-center flex-column">
+                            <span>Giá</span>
+                            <p class="cost-product-cart">${product.gia}</p>
+                        </div>
+                        <div style="margin-top: 20px;" class="d-flex flex-column">
+                            <span>Số lượng</span>
+                            <p class="amount-product-cart">x${product.soluong}</p>
+                        </div>
+                        <button id=${product.idsanpham} class="remove-product">Xoá</button>
+                    
+                    </li>
+                `
+                
+            })
+            const Notify = document.querySelector('.notify-cart')
+            Notify.style.display = 'none'
+            const proDuctList = document.querySelector('.product-cart-list')
+            proDuctList.innerHTML = htmlCart.join()
+            proDuctList.style.display = 'block'
+            let childCount = proDuctList.childNodes.length;
+            const btnDeletes = document.querySelectorAll('.remove-product')
+            // var productID = document.querySelector(`.product-item-${idsanpham}`)
+            btnDeletes.forEach((btnDelete)=>{
+                btnDelete.addEventListener('click',(e)=>{
+                    let idsanpham = e.target.id
+                    const product = document.querySelector(`.product-item-${idsanpham}`)
+                    $.ajax({
+                        type: "POST",
+                        url: "./deleteProduct.php",
+                        data : {
+                            idproduct:idsanpham
+                        }
+                    })
+                    .done(function(response) {
+                        // console.log(response)
+                        if (product){
+                            product.remove()
+                            Toastify({
+                                text: "Xoá sản phẩm thành công!", // Nội dung thông báo
+                                duration: 3000, // Thời gian hiển thị (milisecond)
+                                newWindow: true, // Mở ra một cửa sổ mới khi click vào thông báo
+                                close: true, // Hiển thị nút đóng thông báo
+                                gravity: "top", // Vị trí hiển thị của thông báo (top, bottom, left, right)
+                                position: "center", // Vị trí chính xác của thông báo
+                                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Màu nền của thông báo
+                                }).showToast();
+                        }
+                        
+                    })
+                    .fail(function(error){
+                        console.log(error);
+                    }) 
+                })
+            })
+        }
+    }
+    xhr.open("GET", "getcart.php", true);
+    xhr.send();
 }
 const hideModal = () => {
     const modalProduct = document.querySelector('.modal-product')
@@ -174,7 +255,7 @@ const hideModal = () => {
         e.stopPropagation()
     })
 }
-const renderCart = (btnAddProduct,modalContainer)=>{
+const addToCart = (btnAddProduct,modalContainer)=>{
     btnAddProduct.addEventListener('click',(e)=>{
         let srcImg = modalContainer.querySelector('.big-img').src
         let namesp = modalContainer.querySelector('.name-product-box').innerText
@@ -203,16 +284,32 @@ const renderCart = (btnAddProduct,modalContainer)=>{
         const proDuctList = document.querySelector('.product-cart-list')
         const productItemCart =  document.createElement('li')
         productItemCart.classList.add(`product-item-${nameid}` ,'product-cart-item', 'd-flex' ,'align-items-center', 'justify-content-around')
-        productItemCart.innerHTML = htmlCart
-        proDuctList.appendChild(productItemCart)
-        const modalProduct = document.querySelector('.modal-product')
-        modalProduct.style.display = 'none'
-        modalCart.style.display = 'block'
-        proDuctList.style.display = 'block'
-        postProduct(nameid)
-        const btnDeletes = document.querySelectorAll('.remove-product')
-        var productID = document.querySelector(`.product-item-${nameid}`)
-        deleteProduct(btnDeletes,nameid,productID)
+        let checkProduct = document.querySelector(`.product-item-${nameid}`)
+        if (checkProduct){
+            Toastify({
+                text: "Sản phẩm đã tồn tại", // Nội dung thông báo
+                duration: 3000, // Thời gian hiển thị (milisecond)
+                newWindow: true, // Mở ra một cửa sổ mới khi click vào thông báo
+                close: true, // Hiển thị nút đóng thông báo
+                gravity: "top", // Vị trí hiển thị của thông báo (top, bottom, left, right)
+                position: "center", // Vị trí chính xác của thông báo
+                backgroundColor: "linear-gradient(#f12711, #f5af19)", // Màu nền của thông báo
+                }).showToast();
+        }
+        else{
+            productItemCart.innerHTML = htmlCart
+            proDuctList.appendChild(productItemCart)
+            const modalProduct = document.querySelector('.modal-product')
+            modalProduct.style.display = 'none'
+            modalCart.style.display = 'block'
+            proDuctList.style.display = 'block'
+            let childCount = proDuctList.childNodes.length;
+            postProduct(nameid,amount)
+            const btnDeletes = document.querySelectorAll('.remove-product')
+            let productID = document.querySelector(`.product-item-${nameid}`)
+            deleteProduct(btnDeletes,nameid,productID)
+        }
+        
     })
 }
 const deleteProduct = (btnDeletes,idproduct,product) => {
@@ -226,9 +323,11 @@ const deleteProduct = (btnDeletes,idproduct,product) => {
                 }
             })
             .done(function(response) {
-                console.log(response)
+                // console.log(response)
                 if (product){
                     product.remove()
+                    const productCartList = document.querySelector('.product-cart-list')
+                    let childCount = productCartList.childNodes.length;
                     Toastify({
                         text: "Xoá sản phẩm thành công!", // Nội dung thông báo
                         duration: 3000, // Thời gian hiển thị (milisecond)
@@ -247,19 +346,19 @@ const deleteProduct = (btnDeletes,idproduct,product) => {
         })
     })
 }
-const postProduct = (idProduct)=>{
+const postProduct = (idProduct,amount)=>{
     const username = localStorage.getItem('user')
     $.ajax({
         type: "POST",
         url: "./postproduct.php",
         data : {
             user : username,
-            idOrder : generateRandomNumber(1,1000),
-            idProduct : idProduct
+            idOrder : generateOrderId(),
+            idProduct : idProduct,
+            amount:amount
         }
     })
         .done(function(response) {
-            console.log(response)
             Toastify({
                 text: "Thêm sản phẩm thành công!", // Nội dung thông báo
                 duration: 3000, // Thời gian hiển thị (milisecond)
@@ -278,9 +377,11 @@ const postProduct = (idProduct)=>{
     
 }
 $(document).ready(function(){
+    renderAvt()
     renderUser()
     renderDataProductMale()
     renderProductFemale()
+    renderCart()
 })
 class proDuct{
     constructor(nameProduct,imgUrl,price,size,color,amount,salePrice,kindProduct){
@@ -295,7 +396,11 @@ class proDuct{
         this.kindProduct = kindProduct;
     }
 }
-function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function generateOrderId() {
+  var orderId = 'ETO';
+  for (var i = 0; i < 5; i++) {
+    orderId += Math.floor(Math.random() * 10);
   }
+  return orderId;
+}
 

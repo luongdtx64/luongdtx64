@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo web</title>
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/html/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./asset/html/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
     <div id="main">
@@ -17,23 +19,25 @@
                     <div class="col-md-4">
                         <div class="change-type-clothes d-flex align-items-center">
                             <div id="man-btn" class="change-type-clothes-btn align-self-center current-btn-change">
-                                <button id="btn-clothes-man" href="#" class="text-center">Nam</button>
+                                <button id="btn-clothes-man" class="text-center">Nam</button>
                             </div>
                             <div id="woman-btn" class="change-type-clothes-btn align-self-center">
-                                <button id="btn-clothes-woman" href="#" class="text-center">Nữ</button>
+                                <button id="btn-clothes-woman" class="text-center">Nữ</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <a href="./index.html" class="title-logo">
+                    <div class="box-logo-img col-md-4 text-center">
+                        <a href="C:\xampp\htdocs\webbanhang\index.html" class="title-logo">
                             <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/340637288_872794611236368_5042855998988836652_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tiGZgJ4MsMUAX-y4Y5H&_nc_ht=scontent.fhan2-3.fna&oh=03_AdSHKDN3xBb-Jugz63yCcp8Mm7F0qtKCV1y9O0j0jDvM1g&oe=6460C638" alt="" class="img-logo">
                         </a>
                     </div>
                     <div class="col-md-4 text-right ">
                         <div class="header-box-user-cart d-flex justify-content-end align-items-center">
-                            <a href="./php/loginForm.php" class="box-user-cart-item align-self-center">
-                                <i class="fa-regular fa-user"></i>
-                            </a>
+                            <div class="box-user-cart-item d-flex align-items-center justify-content-center">
+                                <a href="./php/loginForm.php" class="box-user-cart-item align-self-center">
+                                    <i class="fa-regular fa-user"></i>
+                                </a>
+                            </div>
                             <div id="open-modal" class="box-user-cart-item align-self-center">
                                 <i class="fa-solid fa-bag-shopping"></i> <span class="amount">0</span>
                             </div>
@@ -157,7 +161,7 @@
         <div class="banner-ads w-100">
             <div class="container-fluid">
                 <div class="row">
-                    <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/bn/20221017_x7JisGPgEVYcRKKANWuNTn1x.png" alt="" class="img-ads">
+                    <img src="https://pos.nvncdn.net/556e88-134541/bn/20230320_6orPK57k.png" alt="" class="img-ads">
                 </div>
             </div>
         </div>
@@ -166,225 +170,28 @@
                 <div class="row">
                     <ul id="product-man" class="shop-product-list w-100">
                         <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                            
                         </div>
                         <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                            
                         </div>
                         <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                            
                         </div>
                     </ul>
                     <ul id="product-woman" class="shop-product-list w-100">
-                        <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                        <div class="box-product-shop-woman w-100 d-flex">
+                            
                         </div>
-                        <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                        <div class="box-product-shop-woman  w-100 d-flex">
+                            
                         </div>
-                        <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column">
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost"></p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://img.cdn.vncdn.io/cdn-pos/556e88-134541/ps/20221018_TpFfCKUmoKnWYtWAQIHEjsrx.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">ÁO THUN TAY NGẮN, IN HÌNH. REGULAR FORM</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                        <div class="box-product-shop-woman  w-100 d-flex">
+                            
                         </div>
                     </ul>
                     <a href="#" class="show-more text-center">Xem thêm <i class="fa-sharp fa-solid fa-chevron-down"></i></a>
+                
                 </div>
             </div>
         </div>
@@ -403,81 +210,11 @@
                         <button class="btn-tab-link sale-product-btn current-btn-tab-link">Khuyến mãi Website</button>
                     </div>
                     <ul id="sale-product-box" class="shop-product-list w-100">
-                        <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                        <div class="box-product-shop-sale w-100 d-flex">
+                            
                         </div>
-                        <div class="box-product-shop w-100 d-flex">
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
-                            <li class="product-item w-25 d-flex flex-column position-relative">
-                                <p class="sale-percent">25%</p>
-                                <img src="https://bucket.nhanh.vn/556e88-134541/ps/20221017_VF2cwszNJEt9yAIzEywCbdzY.jpg" alt="" class="img-product-item">
-                                <a href="" class="name-product">Quần Jogger Nam Trơn QJ-005</a>
-                                <div class="box-cost-product d-flex">
-                                    <p class="current-cost">399.000đ</p>
-                                    <p class="sale-cost">299.000</p>
-                                </div>
-                            </li>
+                        <div class="box-product-shop-sale w-100 d-flex">
+                            
                         </div>
                     </ul>
                     <ul id="mix-match-box" class="mix-match-list w-100">
@@ -597,7 +334,12 @@
             </div>
         </div>
     </div>
+    <div class="box-notify">
+        
+    </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="./asset/js/app.js"></script>
+<script src="./asset/js/function.js"></script>
 </html>

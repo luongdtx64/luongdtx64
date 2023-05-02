@@ -1,0 +1,34 @@
+.admin-navigation{
+    width: 20%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 0 5px 8px rgba(0,0,0,0.3);
+   
+}
+.admin-feature-list{
+    list-style: none;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.admin-feature-item{
+    cursor: pointer;
+    margin-top: 30px;
+}
+.admin-feature-item:hover{
+    transform: translateX(10px);
+}
+.admin-content{
+    width: 70%;
+    height: 100vh;
+}
+.account-item {
+    border-bottom: 1px solid #a9a9a9;
+}
+.btn-delete-account{
+    background-color: #000;
+    border: none;
+    color: #fff;
+    padding:  0 10px ;
+    border-radius: 99px;
+}

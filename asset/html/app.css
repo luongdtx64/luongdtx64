@@ -6,6 +6,8 @@
 .name-user{
     line-height: 48px;
     margin-top: 15px;
+    font-size: 13px;
+    text-decoration: none;
 }
 .modal-product{
     background: rgba(0,0,0,.3);
@@ -128,4 +130,10 @@ input[name="amount"]{
     background-color: #000;
     color: #fff;
     border-radius: 10px;
+}
+.title-update{
+    text-align: center;
+}
+#formUpdate{
+    margin:auto;
 }

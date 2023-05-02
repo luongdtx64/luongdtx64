@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+    <div class="admin-page w-100 d-flex">
+        <div class="admin-navigation d-flex flex-column">
+            <h4 class="admin-title text-center">Trang quản trị viên</h3>
+            <ul class="admin-feature-list d-flex flex-column">
+                <li class="admin-feature-item">Quản lý tài khoản</li>
+                <li class="admin-feature-item">Quản lý sản phẩm</li>
+                <li class="admin-feature-item">Quản lý đơn hàng</li>
+            </ul>
+        </div>
+        <div class="admin-content">
+            <div class="container">
+
+                <div class="box-account">
+                    <h4>Danh sách tài khoản</h4>
+                    <ul class="account-list">
+                        <li class="account-item d-flex justify-content-between">
+                            <p class="account-name">Tài khoản:Demo</p>
+                            <p class="account-password">Mật khẩu:Demo</p>
+                            <p class="account-phone">Số điện thoại:Demo</p>
+                            <p class="account-email">Email:Demo</p>
+                            <button class="btn-delete-account">Xoá</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="./admin.js"></script>
+</html>

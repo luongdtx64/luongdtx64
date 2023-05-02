@@ -25,9 +25,9 @@ const btnChangeImgLeft = document.getElementById('btn-img-left')
 const btnChangeImgRight = document.getElementById('btn-img-right')
 const imgBanner = document.querySelector('.img-banner')
 let Imgs = [
-    'https://img.cdn.vncdn.io/cdn-pos/556e88-134541/bn/20230320_tUs4bRsm.png',
-    'https://img.cdn.vncdn.io/cdn-pos/556e88-134541/bn/20230320_zk1SfSVA.png',
-    'https://img.cdn.vncdn.io/cdn-pos/556e88-134541/bn/20230320_6orPK57k.png'
+    'https://pos.nvncdn.net/556e88-134541/bn/20230320_6orPK57k.png',
+    'https://pos.nvncdn.net/556e88-134541/bn/20230320_tUs4bRsm.png',
+    'https://pos.nvncdn.net/556e88-134541/bn/20230320_zk1SfSVA.png'
 ]
 var indexImg = 0
 const ChangeImgauto = ()=>{

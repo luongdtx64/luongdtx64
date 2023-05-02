@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+    <link rel="stylesheet" href="/webbanhang/asset/html/style.css">
+    <link rel="stylesheet" href="/webbanhang/asset/html/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<style>
+    .title-update{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    #formUpdate{
+        align-items: center;
+        display: flex;
+        /* flex-direction: column; */
+        width: 70%;
+        justify-content: center;
+    }
+    #formUpdate input[type="text"]{
+        padding: 4px 9px;
+        height: 29px;
+        border: 1px solid #e0e0e0;
+        -webkit-box-shadow: inset 0 0 5px 0 #eaeaea;
+        box-shadow: inset 0 0 5px 0 #eaeaea;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        line-height: 19px;
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    .custom-file-upload {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.custom-file-upload:hover {
+    background-color: #ccc;
+    color: #000;
+}
+
+#file-name {
+    margin-left: 10px;
+    font-style: italic;
+}
+.avtForm{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
+button[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    padding: 0 30px;
+    /* border-radius: 10px; */
+    width :35%;
+    margin-right: 20px;
+}
+.btn-refesh{
+    background-color: #000;
+    color: #fff;
+    padding: 0px 30px;
+    /* border-radius: 10px; */
+    width: 35%;
+}
+.box-notify{
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+}
+.notify-content{
+    margin: auto;
+    width: 400px;
+    height: 250px;
+    background-color:#fff;
+    border-radius: 20px;
+}
+.notify-content h4{
+}
+.notify-content i {
+    padding: 30px;
+    border-radius: 99px;
+    color: rgb(40, 216, 40);
+    border: 2px solid rgb(40, 216, 40);
+    font-size: 30px;
+}
+.notify-content span{
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #000;
+    padding: 15px 30px;
+    color: #fff;
+    cursor: pointer;
+}
+.change-password-link{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+.logout{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    border: none;
+    background-color: transparent;
+    align-self: self-start;
+}
+</style>
+<body>
+    <div class="box-logo w-100 d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="change-type-clothes d-flex align-items-center">
+                        <div id="man-btn" class="change-type-clothes-btn align-self-center current-btn-change">
+                            <button id="btn-clothes-man" class="text-center">Nam</button>
+                        </div>
+                        <div id="woman-btn" class="change-type-clothes-btn align-self-center">
+                            <button id="btn-clothes-woman" class="text-center">Nữ</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-logo-img col-md-4 text-center">
+                    <a href="C:\xampp\htdocs\webbanhang\index.html" class="title-logo">
+                        <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/340637288_872794611236368_5042855998988836652_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tiGZgJ4MsMUAX-y4Y5H&_nc_ht=scontent.fhan2-3.fna&oh=03_AdSHKDN3xBb-Jugz63yCcp8Mm7F0qtKCV1y9O0j0jDvM1g&oe=6460C638" alt="" class="img-logo">
+                    </a>
+                </div>
+                <div class="col-md-4 text-right ">
+                    <div class="header-box-user-cart d-flex justify-content-end align-items-center">
+                        <div class="box-user-cart-item d-flex align-items-center justify-content-center">
+                            <a style="text-decoration: none; color: #000;" class="d-flex align-items-center" href="/webbanhang  /asset/profile/me.html">
+                                <img class="avt" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIEAfgMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUCAwYBB//EADEQAAIBAwIEAwYGAwAAAAAAAAABAgMEEQUhEjFBYTJRcRMiI1KBkhQVQpGhsTRDcv/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAwDAQACEQMRAD8A+iAA0gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE3SqCrXWZeGCy+4G6y0vjiqly2k+UFt+5ZQsreCSjRh9Vk34PSVUadjbTWHRgvRYKu+010E6lH3odV1RenjSaaa5gcmCRfUfYXU4Ll4l6EcqAAAAAAAAAAAFxoUV7OrLq5YKct9CkuCrHrlMmqtgAQAABS65H4tKXVporCz1yea9KHyrJWGsQAAAAAAAAAAHpvsLj8NcKcvC9pEcAdZFppNcnyPSgsdRlbr2dXMqfTziW1O+tppYrRXq8EipJhUnGnBym8JLLI9bULanHLqp9o7sqL6+ndPhj7tJdM8/UkGm5rO4rzqN7N7LsagDSAAAAAAAAABJs7Sd1PC2gvFICOt3hcyRTsbqosxpPHfYu7azo28fhxXF1k+bJGNyVVB+WXXWEPvH5XdfJD7zoAKOfWl3S/TD7zx6ZdJeCL9JHQgUczVs7mkszoyx5rc0djrMdyLd2NG4XvRUZ/MkKOdBtubepbVOCovR9GaioAAAAANlClKvWjTh+p8/I6ShThRpKnBYSKzRKS+JVfPPCi0Jqs89hnsYfUEGeRkwyMgZ5QyYZAGeewyYb+YA13VvC5ounLn0fkznJxcJyjLmnhnT5KbWYcNwprlOP8lwV4AKgAALnScK02+Zk3JA0mS/DSjndSZM3AzTPfqa9xuBmMmG43AzyMmG43AzyMmG43AyyV+s706T68T/AKJxX6vNcFKHXLYFYAAAAAsdI/2FkAAAAAAAAAAAAB8ip1X/ACF/yABCAAH/2Q==" alt="" srcset="">
+                                <p class="name-user align-self-center">Test</p>
+                            </a>
+                        </div>
+                        <div id="open-modal" class="box-user-cart-item align-self-center">
+                            <i class="fa-solid fa-bag-shopping"></i> <span class="amount">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="shop-navbar w-100 d-flex">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-10 col-md-12">
+                    <ul class="navbar-list">
+                        <li class="navbar-item"><a href="#" class="navbar-item-link">trang chủ</a></li>
+                        <li class="navbar-item"><a href="#" class="navbar-item-link">tin tức</a></li>
+                        <li class="navbar-item relative show-product"><a href="#" class="navbar-item-link">sản phẩm <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="box-nav-product">
+                                <ul class="nav-product-list">
+                                    <li class="nav-product-item show-tee"><a href="#" class="nav-product-link">Áo nam <i class="fa-solid fa-angle-right"></i></a>
+                                        <div class="box-tee">
+                                            <ul class="product-list">
+                                                <li class="sub-product-item"><a href="#" class="product-link">Hoodie</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Sơ mi</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Phông</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Khoác</a></li>
+                                            </ul>
+                                        </div> 
+                                    </li>
+                                    <li class="nav-product-item show-pant"><a href="#" class="nav-product-link">Quần nam <i class="fa-solid fa-angle-right"></i></a>
+                                        <div class="box-pant">
+                                            <ul class="product-list">
+                                                <li class="sub-product-item"><a href="#" class="product-link">Jean</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Kaki</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Âu</a></li>
+                                                <li class="sub-product-item"><a href="#" class="product-link">Jogger</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+
+                        <li class="navbar-item"><a href="#" class="navbar-item-link">bộ sưu tập</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <div class="box-search">
+                        <form class="form-search">
+                            <input placeholder="Tìm kiếm" type="text" name="inp-search" class="inp-search">
+                            <button class="btn-search"><i style="margin: auto;" class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-update-form w-100">
+        <div class="container">
+            <div class="row">
+                <h4 class="title-update">Cập nhật thông tin cá nhân</h4>
+
+                <div class="d-flex w-100">
+                    <form id="formUpdate" class="">
+                        <div class="w-50 d-flex flex-column align-items-center">
+                            <img class="avtForm" src="" alt="avt">
+                            <div>
+                                <a class="change-password-link" href="changepassword.html">Đổi mật khẩu</a>
+                            </div>
+
+                        </div>
+                        <div style="margin-left: 40px;" class="d-flex flex-column w-100">
+                            <div class="box-render">
+                                <input required placeholder="Họ và tên" type="text" name="fullname">
+                                <input required placeholder="Số điện thoại" type="text" name="sdtupdate">
+                                <input required placeholder="Email" type="text" name="emailupdate">
+                            </div>
+                            <label class="text-center" for="">Địa chỉ</label>
+                            <select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+                                <option class="option-city" value="" selected>Chọn tỉnh thành</option>           
+                                </select>
+                                          
+                                <select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+                                <option class="option-district" value="" selected>Chọn quận huyện</option>
+                                </select>
+                                
+                                <select  class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+                                <option class="option-ward"  value="" selected>Chọn phường xã</option>
+                            </select>
+                            <br>
+                            <input required placeholder="Địa chỉ cụ thể" type="text" name="detailAddress">
+                            <label for="avatar" class="custom-file-upload">
+                                <i class="fas fa-cloud-upload-alt"></i> Chọn ảnh đại diện
+                            </label>
+                            <input required type="file" accept=".jpg, .png" name="avatar-file" id="avatar" value="webbanhang/asset/profile/avtDefault.jpg">
+                            <div style="text-align: center; margin-top: 10px;">
+                                <button type="submit">Cập nhật</button>
+                                <button type="button" class="btn-refesh">Xoá</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <button href="" class="logout">Đăng Xuất<i class="fa-solid fa-right-from-bracket"></i></button>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer w-100">
+        <div class="container">
+            <div class="row">
+                <div class="box-address d-flex w-100">
+                    <ul class="address-list d-flex flex-column">
+                        <h4 class="name-address">TP. Hồ Chí Minh</h4>
+                        <li class="address-item d-flex flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Tầng 3, Số 70 Lữ Gia, Phường 15, Quận 11, Thành phố Hồ Chí Minh</p>
+                        </li>
+                        <li class="address-item d-flex flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Tầng 3, Số 70 Lữ Gia, Phường 15, Quận 11, Thành phố Hồ Chí Minh</p>
+                        </li>
+                        <li class="address-item d-flex flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Tầng 3, Số 70 Lữ Gia, Phường 15, Quận 11, Thành phố Hồ Chí Minh</p>
+                        </li>
+                    </ul>
+                    <ul class="address-list d-flex flex-column">
+                        <h4 class="name-address">Hà Nội</h4>
+                        <li class="address-item d-flex flex-column flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Store 1: Tầng 3, Hà Thành Plaza, 102 Thái Thịnh, Phường Trung Liệt, Quận Đống Đa, Hà Nội</p>
+                        </li>
+                        <li class="address-item d-flex flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Store 1: Tầng 3, Hà Thành Plaza, 102 Thái Thịnh, Phường Trung Liệt, Quận Đống Đa, Hà Nội</p>
+                        </li>
+                        <li class="address-item d-flex flex-column">
+                            <strong>Store 1:</strong>
+                            <p>Store 1: Tầng 3, Hà Thành Plaza, 102 Thái Thịnh, Phường Trung Liệt, Quận Đống Đa, Hà Nội</p>
+                        </li>
+                    </ul>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <h6 class="contact-title">HỖ TRỢ (9:00 - 21:00)</h6>
+                            <div class="box-contact d-flex">
+                                <a href="tel:0825699866" class="contact-device"><i class="fa-solid fa-headphones"></i>0825699866</a>
+                                <a href="mailto:luongdtx64@gmail.com" class="contact-device"><i class="fa-regular fa-envelope"></i>luongdtx64@gmail.com</a>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <h6 class="contact-title">THEO DÕI CHÚNG TÔI</h6>
+                            <div class="box-contact d-flex">
+                                <a href="https://www.facebook.com/luongdtx64" class="contact-device"><img src="http://t0458.store.nhanh.vn/tp/T0458/img/icon-fb.png" alt=""></a>
+                                <a href="https://www.instagram.com/luongeto.dtx8/?fbclid=IwAR1nJnTetHDSwMPj6Z4reJKZZBjPuiKMorww_3iabii3z0RBcP0nCClLWDY" class="contact-device"><img src="http://t0458.store.nhanh.vn/tp/T0458/img/icon-insta.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <h6 class="contact-title">PHƯƠNG THỨC THANH TOÁN</h6>
+                            <div class="box-contact d-flex">
+                                <a href="#" class="contact-device"><img src="http://t0458.store.nhanh.vn/tp/T0458/img/img-payment.png" alt=""></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-cart">
+        <div class="modal-container-cart">
+            <div class="container">
+                <div class="modal-box">
+                    <div class="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <h3 class="title-modal">giỏ hàng</h3>
+                    <div class="box-product-cart">
+                        <p class="notify-cart">
+                            Hiện không có sản phẩm nào
+                        </p>
+                        <ul class="product-cart-list">
+                        </ul>
+                    </div>
+                    <span class="line"></span>
+                    <div class="box-btn-cart d-flex justify-content-between">
+                        <button id="continue-shopping" href="" class="btn-cart">Tiếp tục mua hàng</button>
+                        <a href="#" class="btn-cart">Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-notify">
+        
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="./me.js"></script>
+</html>
