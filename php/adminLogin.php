@@ -153,6 +153,7 @@ input[name="btn-signup"]{
                     <div class="box-form w-100">
                         <div class="box-login">
                             <form id="loginForm" class="login-form d-flex flex-column justify-content-between align-items-center">
+                                <h5>Trang này chỉ dành cho quản trị viên , nếu bạn không phải quản trị viên , xin hãy quay lại</h5>
                                 <div class="btn-group w-100 d-flex justify-content-around">
                                     <div class="btn-change btn-login">Đăng Nhập</div>
                                     <a href="./signupForm.php" class="btn-change btn-signup">Đăng Kí</a>
@@ -160,8 +161,6 @@ input[name="btn-signup"]{
                                 <input  placeholder="Tài khoản" class="inp-login" type="text" name="userlogin" >
                                 <input  placeholder="Mật khẩu" class="inp-login" type="password" name="passlogin" >
                                 <input name="btn-login" type="submit" value = "Đăng Nhập">
-                                <a href="./forgotpassForm.php" class='forgot-pass'>Quên mật khẩu</a>
-                                <a style="text-decoration:none;color:#000;font-weight:bold" href="./adminLogin.php" class="admin">Đăng nhập với tư cách quản trị viên</a>
                             </form>
                         </div>
                     </div>
@@ -178,5 +177,53 @@ input[name="btn-signup"]{
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="./main.js"></script>
-<script src="./login.js"></script>
+<script>
+    var boxNotify = document.querySelector('.box-notify')
+    $(document).ready(function() {
+        $("#loginForm").submit(function(event){
+            event.preventDefault();
+            var username = $("input[name='userlogin']").val();
+            var password = $("input[name='passlogin']").val();
+            $.ajax({
+            type: "POST",
+            url: "./adminType.php",
+            data: {
+                username: username,
+                password: password
+            },
+            success: function(response) {
+                if(response == 'ok'){
+                    localStorage.setItem('user',username)
+                    console.log(response)
+                    boxNotify.style.display = 'flex'
+                    boxNotify.innerHTML = `
+                    <div class="notify-content d-flex align-items-center justify-content-center flex-column">
+                        <h4>Đăng nhập thành công</h4>
+                        <i class="fa-solid fa-check"></i>
+                        <span onclick = "document.location.href = '/webbanhang/admin/admin.html'">OK</span>
+                    </div>
+                    `
+                }
+                else{
+                    console.log(response)
+                    boxNotify.style.display = 'flex'
+                    boxNotify.innerHTML = `
+                    <div class="notify-content d-flex align-items-center justify-content-center flex-column">
+                        <h4>Tài khoản của bạn không được phép truy cập</h4>
+                        <i class="error-color fa-sharp fa-solid fa-xmark"></i>
+                        <span onclick = "hideNotify()">OK</span>
+                    </div>
+                    `
+                }
+            },
+            error:function(error){
+                alert(error)
+            }
+        });
+        })
+    })
+    const hideNotify = ()=>{
+    boxNotify.style.display = 'none'
+}
+</script>
 </html>

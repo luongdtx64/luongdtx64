@@ -481,3 +481,6 @@
 .contact-device+.contact-device{
     margin-left: 10px;
 }
+.cart-list-product{
+    list-style: none;
+}

@@ -5,40 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="admin-page w-100 d-flex">
-        <div class="admin-navigation d-flex flex-column">
-            <h4 class="admin-title text-center">Trang quản trị viên</h3>
-            <ul class="admin-feature-list d-flex flex-column">
-                <li class="admin-feature-item">Quản lý tài khoản</li>
-                <li class="admin-feature-item">Quản lý sản phẩm</li>
-                <li class="admin-feature-item">Quản lý đơn hàng</li>
-            </ul>
-        </div>
-        <div class="admin-content">
-            <div class="container">
-
-                <div class="box-account">
-                    <h4>Danh sách tài khoản</h4>
-                    <ul class="account-list">
-                        <li class="account-item d-flex justify-content-between">
-                            <p class="account-name">Tài khoản:Demo</p>
-                            <p class="account-password">Mật khẩu:Demo</p>
-                            <p class="account-phone">Số điện thoại:Demo</p>
-                            <p class="account-email">Email:Demo</p>
-                            <button class="btn-delete-account">Xoá</button>
-                        </li>
-                    </ul>
-                </div>
+    <div class="header-admin">
+        <div class="container">
+            <div class="box-img d-flex align-items-center justify-content-center">
+                <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/340637288_872794611236368_5042855998988836652_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tiGZgJ4MsMUAX-y4Y5H&_nc_ht=scontent.fhan2-3.fna&oh=03_AdSHKDN3xBb-Jugz63yCcp8Mm7F0qtKCV1y9O0j0jDvM1g&oe=6460C638" alt="" class="logo">
             </div>
         </div>
     </div>
+    <div class="content d-flex">
+        <ul class="nav-list d-flex flex-column">
+            <li style="background-color: orange;" class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-solid fa-rectangle-ad"></i> ADMIN
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/webbanhang/php/loginForm.php">
+                    <i class="fa-solid fa-rectangle-ad"></i>Đăng xuất
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="fa-solid fa-rectangle-ad"></i> Báo lỗi
+                </a>
+            </li>
+            <li id="add-product" class="nav-item">
+                <i class="fa-solid fa-square-plus"></i> Thêm sản phẩm
+            </li>
+        </ul>
+        <div class="box-feature">
+            <ul class="feature-list d-flex justify-content-around">
+                <li class="feature-item">
+                    <div id="btn-account" style="background-color: brown;" class="btn-feature d-flex justify-content-around">
+                        <div style="margin-top: 10px">
+                            <i style="font-size: 40px; " class="fa-regular fa-address-card"></i>
+                        </div>
+                        <div style="margin-top: 10px">
+                            <p style="font-size: 17px;">Thành viên</p>
+                            <p id="amount-acc" class="amount">Tài khoản:0</p>
+                        </div>
+    
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div id="btn-product" style="background-color: green;"  class="btn-feature d-flex justify-content-around">
+                        <div style="margin-top: 10px">
+                            <i style="font-size: 40px; " class="fa-solid fa-shirt"></i>
+                        </div>
+                        <div style="margin-top: 10px">
+                            <p style="font-size: 17px;">Sản phẩm</p>
+                            <p id="amount-product" class="amount">Số lượng:0</p>
+                        </div>
+    
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div style="background-color: blue;" class="btn-feature d-flex justify-content-around">
+                        <div style="margin-top: 10px">
+                            <i style="font-size: 40px; " class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div style="margin-top: 10px">
+                            <p style="font-size: 17px;">Chi tiết đơn hàng</p>
+                            <p id="amount-cart" class="amount">Số lượng:0</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <h3 class="title-content">Danh sách tài khoản</h3>
+            <div class="content-list">
+                <table>
+                    <tr>
+                        <th class="border">ID Sản phẩm</th>
+                        <th class="border">Tên sản phẩm</th>
+                        <th class="border">Hình ảnh</th>
+                        <th class="border">Số lượng</th>
+                        <th class="border">Loại quần áo</th>
+                        <th class="border">Giá</th>
+                        <th class="border">Size</th>
+                    </tr>
+                    <tr>
+                        <td class="border"><input readonly type="text" class="inp-tb"></td>
+                        <td class="border"><input type="text" class="inp-tb"></td>
+                        <td class="border"><img class="img-tb" src="" alt=""></td>
+                        <td class="border"><input type="text" class="inp-tb"></td>
+                        <td class="border"><input type="text" class="inp-tb"></td>
+                        <td class="border"><input type="text" class="inp-tb"></td>
+                        <td class="border"><input type="text" class="inp-tb"></td>
+                        
+                    </tr>
+                    <button class="btn-content btn-delete-acc">Xoá</button>
+                    <button class="btn-content btn-admin">Sửa</button>
+                </table>
+            </div>
+            
+            
+        </div>
+    </div>
 </body>
+<div class="modal-product">
+    <div class="modal-container-product d-flex flex-column">
+        <div class="btn-close"></div>
+        <form class="addProduct d-flex flex-column align-items-center">
+            <h3>Thêm sản phẩm</h3>
+            <input required name="name-product" type="text" placeholder="Tên sản phẩm" value="">
+            <input required name="amount-product" type="text" placeholder="Số lượng" value="">
+            <input required name="type-product" type="text" placeholder="Loại sản phẩm" value="">
+            <input required name="cost-product" type="text" placeholder="Giá" value="">
+            <input required name="sale-cost-product" type="text" placeholder="Giá sale" value="">
+            <select name="size" id="size">
+                <option value="">Chọn size sản phẩm</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <label for="img" class="custom-file-upload">
+                <i class="fas fa-cloud-upload-alt"></i> Tải lên ảnh sản phẩm
+            </label>
+            <input required style="display: none;" required type="file" accept=".jpg, .png" name="img-file" id="img" value="webbanhang/asset/profile/avtDefault.jpg">
+            <input type="submit" value="Thêm sản phẩm">
+        </form>
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="./admin.js"></script>

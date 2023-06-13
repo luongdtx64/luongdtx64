@@ -262,6 +262,8 @@ const addToCart = (btnAddProduct,modalContainer)=>{
         let nameid = modalContainer.querySelector('.name-product-box').id
         let pricesp = modalContainer.querySelector('.price-cart').innerText
         let amount = modalContainer.querySelector('input[name="amount"]').value
+        let totalPrice = parseInt(pricesp*amount)
+        console.log(totalPrice)
         const modalCart = document.querySelector('.modal-cart')
         let htmlCart = `
         <img src="${srcImg}" alt="sản phẩm" class="img-cart">
@@ -271,7 +273,7 @@ const addToCart = (btnAddProduct,modalContainer)=>{
         </div>
         <div style="margin-top: 20px;" class="d-flex align-self-center flex-column">
             <span>Giá</span>
-            <p class="cost-product-cart">${pricesp}</p>
+            <p class="cost-product-cart">${totalPrice}</p>
         </div>
         <div style="margin-top: 20px;" class="d-flex flex-column">
             <span>Số lượng</span>
@@ -304,7 +306,7 @@ const addToCart = (btnAddProduct,modalContainer)=>{
             modalCart.style.display = 'block'
             proDuctList.style.display = 'block'
             let childCount = proDuctList.childNodes.length;
-            postProduct(nameid,amount)
+            postProduct(nameid,amount,totalPrice)
             const btnDeletes = document.querySelectorAll('.remove-product')
             let productID = document.querySelector(`.product-item-${nameid}`)
             deleteProduct(btnDeletes,nameid,productID)
@@ -346,7 +348,7 @@ const deleteProduct = (btnDeletes,idproduct,product) => {
         })
     })
 }
-const postProduct = (idProduct,amount)=>{
+const postProduct = (idProduct,amount,totalPrice)=>{
     const username = localStorage.getItem('user')
     $.ajax({
         type: "POST",
@@ -355,7 +357,8 @@ const postProduct = (idProduct,amount)=>{
             user : username,
             idOrder : generateOrderId(),
             idProduct : idProduct,
-            amount:amount
+            amount:amount,
+            totalPrice:totalPrice
         }
     })
         .done(function(response) {
